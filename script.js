@@ -1,6 +1,6 @@
 "use strict";
 
-// scoping
+/* // scoping
 // lexical scoping
 // scope: space or area or environment in which a certain variable is declared
 // types of scope: 1. global scope 2. function scope 3. block scope
@@ -104,4 +104,48 @@ function a() {
 
 console.log(a());
 
-// regular function: this >> undefined
+// regular function: this >> undefined */
+
+// Closures
+// A closure gives a function access to all variables of its parent function, even after that function has returned.
+
+function refrigerator() {
+  let coke = 6;
+
+  return function () {
+    coke--;
+    console.log(`${coke} Coke`);
+  };
+}
+
+const drink = refrigerator();
+drink();
+drink();
+drink();
+drink();
+drink();
+
+const drink2 = refrigerator();
+drink2();
+drink2();
+drink2();
+drink();
+
+function computer() {
+  let ramCount = 4;
+
+  return function () {
+    ramCount--;
+    console.log(ramCount);
+  };
+}
+
+const service1 = computer();
+console.log(service1);
+service1();
+service1();
+service1();
+
+const service2 = computer();
+console.log(service2);
+service2();
